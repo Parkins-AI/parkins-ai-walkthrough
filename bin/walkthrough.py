@@ -975,13 +975,10 @@ def cmd_show_active(_: argparse.Namespace) -> None:
 # ── URL helpers ──────────────────────────────────────────────────────────────
 
 def _beta_origin() -> str:
-    # Resolved at runtime by listing the beta deployment if needed. The hostname
-    # for `--env beta` is `walkthrough-beta.<account-subdomain>.workers.dev`;
-    # we don't know the account subdomain at file-read time, so the helper just
-    # returns the documented hostname. After `wrangler deploy --env beta`, the
-    # real URL is printed by wrangler — update if it changes.
+    # Beta has its own host since 14 Nov 2026 (S-ARCH-11); the workers.dev URL
+    # (walkthrough-beta.parkins-d93jed72hfs91np.workers.dev) still works.
     return os.environ.get("WALKTHROUGH_BETA_ORIGIN",
-                          "https://walkthrough-beta.parkins-d93jed72hfs91np.workers.dev")
+                          "https://beta.walkthrough.parkins.ai")
 
 
 def beta_view_url(wid: str, entry_code: str | None) -> str:
