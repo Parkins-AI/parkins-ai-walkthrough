@@ -34,10 +34,15 @@ html_handling = "none"
 binding = "WALKTHROUGHS"
 bucket_name = "parkins-ai-walkthroughs"
 
-# ── Beta (workers.dev) ──────────────────────────────────────────────────────
+# ── Beta (beta.walkthrough.parkins.ai, S-ARCH-11; workers.dev kept) ─────────
+# Beta storage: still the production bucket below (S-ARCH-12, being separated
+# in its own change, not this one).
 [env.beta]
 name = "walkthrough-beta"
 workers_dev = true
+routes = [
+  { pattern = "beta.walkthrough.parkins.ai", custom_domain = true }
+]
 
 [env.beta.assets]
 directory = "./public"
