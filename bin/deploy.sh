@@ -22,7 +22,7 @@ cd "$REPO"
 if [[ "$ENVIRONMENT" == "production" ]]; then
   HOST="https://walkthrough.parkins.ai"
 else
-  HOST="https://walkthrough-beta.parkins-d93jed72hfs91np.workers.dev"
+  HOST="https://beta.walkthrough.parkins.ai"
 fi
 
 export CLOUDFLARE_API_TOKEN="$(security find-generic-password -a eli -s 'eli/cloudflare-parkins-ai-token' -w)"
