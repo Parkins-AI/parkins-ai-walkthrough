@@ -35,8 +35,11 @@ binding = "WALKTHROUGHS"
 bucket_name = "parkins-ai-walkthroughs"
 
 # ── Beta (beta.walkthrough.parkins.ai, S-ARCH-11; workers.dev kept) ─────────
-# Beta storage: still the production bucket below (S-ARCH-12, being separated
-# in its own change, not this one).
+# Beta storage: the production bucket below, as a recorded S-ARCH-18 exception
+# to S-ARCH-12 (14 Nov 2026; ROADMAP.md, "Exceptions"). This Worker only reads
+# WALKTHROUGHS (get/head/list in src/index.js, no put/delete); walkthroughs are
+# written from the Mac by bin/walkthrough.py, never through a Worker. Beta
+# therefore cannot change production data.
 [env.beta]
 name = "walkthrough-beta"
 workers_dev = true
